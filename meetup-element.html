@@ -30,10 +30,7 @@ Element providing solution to no problem in particular.
 
     <meetup-service id="meetupservice" meetups="{{meetups}}" urlname="{{urlname}}" sigid="{{sigid}}" sig="{{sig}}"></meetup-service>
 
-    <h1>Hello from meetup-element</h1>
-    <content></content>
-
-    <div horizontal  layout wrap>
+    <div vertical  layout wrap>
       <template repeat="{{meetup in meetups}}">
         <div class="attendeecard" layout center vertical>
         <h3>{{meetup.name}}</h3>
