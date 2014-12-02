@@ -1,0 +1,110 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="meetup-service.html"
+
+<!--
+Element providing solution to no problem in particular.
+
+##### Example
+
+    <meetup-element></meetup-element>
+
+@element meetup-element
+@blurb Element showing the upcoming meetup events for a group
+@status alpha
+@homepage http://github.com/gdgtc/meetup-element
+-->
+<polymer-element name="meetup-element" attributes="urlname sigid sig">
+
+  <template>
+
+    <link rel="stylesheet" href="meetup-element.css">
+
+    <meetup-service id="meetupservice" meetups="{{meetups}}" urlname="{{urlname}}" sigid="{{sigid}}" sig="{{sig}}"></meetup-service>
+
+    <h1>Hello from meetup-element</h1>
+    <content></content>
+
+    <div horizontal  layout wrap>
+      <template repeat="{{meetup in meetups}}">
+        <div class="attendeecard" layout center vertical>
+        <h3>{{meetup.name}}</h3>
+        <a href="{{meetup.event_url}}">register</a>
+        </div>
+      </template>
+    </div>
+
+
+  </template>
+
+  <script>
+
+    Polymer({
+      /**
+       * The `author` attribute sets an initial author
+       *
+       * @attribute author
+       * @type string
+       * @default 'Dimitri Glazkov'
+       */
+      author: 'Lloyd Cledwyn',
+
+      /**
+       * `fancy` is a property that does something fancy.
+       *
+       * @property fancy
+       * @type bool
+       * @default false
+       */
+      fancy: false,
+
+      ready: function() {
+        // Ready is a lifecycle callback.
+        // You can do setup work in here.
+        // More info: http://www.polymer-project.org/docs/polymer/polymer.html#lifecyclemethods
+      },
+
+      /**
+       * The `sayHello` method will return a greeting.
+       *
+       * @method sayHello
+       * @param {String} greeting Pass in a specific greeting.
+       * @return {String} Returns a string greeting.
+       */
+      sayHello: function(greeting) {
+        var response = greeting || 'Hello World!';
+        return 'meetup-element says, ' + response;
+      },
+
+      /**
+       * The `meetup-element-lasers-success` event is fired whenever we
+       * call fireLasers.
+       *
+       * @event meetup-element-lasers-success
+       * @param {Object} detail
+       *   @param {string} detail.sound An amazing sound.
+       */
+
+      /**
+       * The `fireLasers` method will fire the lasers. At least
+       * it will dispatch an event that claims lasers were fired :)
+       *
+       * @method fireLasers
+       */
+      fireLasers: function() {
+        this.fire('meetup-element-lasers-success', { sound: 'Pew pew pew!' });
+      }
+
+    });
+
+  </script>
+
+</polymer-element>
