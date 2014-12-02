@@ -13,7 +13,7 @@
   ],
   "main": "meetup-element.html",
   "license": "MIT",
-  "homepage": "https://github.com/github/meetup-element/",
+  "homepage": "https://github.com/gdgtc/meetup-element/",
   "ignore": [
     "/.*",
     "/tests/"
