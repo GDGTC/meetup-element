@@ -3,13 +3,9 @@
 <polymer-element name="meetup-card" attributes="meetup">
 
   <template>
-    <style>
 
-    p{
-      border-radius: 20px;
-      background-color: #eee;
-    }
-    </style>
+    <link rel="stylesheet" href="styles/meetup-card.css">
+
     <div class="attendeecard" layout center vertical>
       <h3>{{meetup.name}}</h3>
       <div>
@@ -18,7 +14,7 @@
         <paper-checkbox id="showDetailCheckbox" on-click="{{showDetail}}"></paper-checkbox>
         <br />
         <a href="{{meetup.event_url}}" >register</a>
-        
+
       </div>
 
 

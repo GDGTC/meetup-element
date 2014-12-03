@@ -10,7 +10,8 @@
     "web-component",
     "web-components",
     "polymer",
-    "meetup"
+    "meetup",
+    "google-developers-group"
   ],
   "main": "meetup-element.html",
   "license": "MIT",
