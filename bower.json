@@ -2,7 +2,8 @@
   "name": "seed-element",
   "version": "0.0.1",
   "authors": [
-    "Lloyd Cledwyn <cledwyn@gmail.com>"
+    "Lloyd Cledwyn <cledwyn@gmail.com>",
+    "Brian Sipple <bsipple57@gmail.com>"
   ],
   "description": "Element providing information through the Meetup API.",
   "keywords": [
