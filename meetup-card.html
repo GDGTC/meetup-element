@@ -1,30 +1,40 @@
+<link rel="import" href="../paper-checkbox/paper-checkbox.html">
+
 <polymer-element name="meetup-card" attributes="meetup">
 
-
   <template>
-<style>
+    <style>
 
-p{
-  border-radius: 20px;
-  background-color: #eee;
-}
-</style>
-      <div class="attendeecard" layout center vertical>
-        <h3>{{meetup.name}}</h3>
-        <a href="{{meetup.event_url}}">register</a>
-        <p id="descr"></p>
-        </div>
+    p{
+      border-radius: 20px;
+      background-color: #eee;
+    }
+    </style>
+    <div class="attendeecard" layout center vertical>
+      <h3>{{meetup.name}}</h3>
+      <div>
+        Show More Info
+
+        <paper-checkbox id="showDetailCheckbox" on-click="{{showDetail}}"></paper-checkbox>
+        <br />
+        <a href="{{meetup.event_url}}" >register</a>
+        
+      </div>
+
+
+      <p id="descr" hidden></p>
+    </div>
   </template>
 
   <script>
-
     Polymer({
-
       ready: function() {
         this.injectBoundHTML(this.meetup.description, this.$.descr);
+      },
+      showDetail: function (){
+        this.$.descr.hidden = this.$.showDetailCheckbox.checked;
       }
     });
-
   </script>
 
 </polymer-element>
