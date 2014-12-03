@@ -1,0 +1,30 @@
+<polymer-element name="meetup-card" attributes="meetup">
+
+
+  <template>
+<style>
+
+p{
+  border-radius: 20px;
+  background-color: #eee;
+}
+</style>
+      <div class="attendeecard" layout center vertical>
+        <h3>{{meetup.name}}</h3>
+        <a href="{{meetup.event_url}}">register</a>
+        <p id="descr"></p>
+        </div>
+  </template>
+
+  <script>
+
+    Polymer({
+
+      ready: function() {
+        this.injectBoundHTML(this.meetup.description, this.$.descr);
+      }
+    });
+
+  </script>
+
+</polymer-element>

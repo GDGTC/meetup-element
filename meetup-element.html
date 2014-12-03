@@ -8,7 +8,8 @@
     subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="meetup-service.html"
+<link rel="import" href="meetup-service.html">
+<link rel="import" href="meetup-card.html">
 
 <!--
 Element providing solution to no problem in particular.
@@ -32,10 +33,7 @@ Element providing solution to no problem in particular.
 
     <div vertical  layout wrap>
       <template repeat="{{meetup in meetups}}">
-        <div class="attendeecard" layout center vertical>
-        <h3>{{meetup.name}}</h3>
-        <a href="{{meetup.event_url}}">register</a>
-        </div>
+        <meetup-card meetup="{{meetup}}"></meetup-card>
       </template>
     </div>
 
