@@ -1,6 +1,14 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="meetup-service.html">
-<link rel="import" href="meetup-card.html">
+<link rel="import" href="meetup-service.html"
 
 <!--
 Element providing solution to no problem in particular.
@@ -22,9 +30,15 @@ Element providing solution to no problem in particular.
 
     <meetup-service id="meetupservice" meetups="{{meetups}}" urlname="{{urlname}}" sigid="{{sigid}}" sig="{{sig}}"></meetup-service>
 
-    <div vertical  layout wrap>
+    <h1>Hello from meetup-element</h1>
+    <content></content>
+
+    <div horizontal  layout wrap>
       <template repeat="{{meetup in meetups}}">
-      <meetup-card meetup="{{meetup}}"></meetup-card>
+        <div class="attendeecard" layout center vertical>
+        <h3>{{meetup.name}}</h3>
+        <a href="{{meetup.event_url}}">register</a>
+        </div>
       </template>
     </div>
 
