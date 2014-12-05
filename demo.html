@@ -15,17 +15,26 @@
 
   <script src="../webcomponentsjs/webcomponents.min.js"></script>
   <link rel="import" href="meetup-element.html">
+  <link rel="import" href="upcoming-meetups.html">
 
 </head>
 <body unresolved>
 
   <p>An example of using <code>&lt;meetup-element&gt;</code>:</p>
   <p>Using Meetup.com API <a href="http://www.meetup.com/meetup_api/docs/2/events/" target="_new">GET /events</a></p>
-  <p><a href="http://api.meetup.com/2/events?status=upcoming&order=time&limited_events=False&group_urlname=gdg-tc&desc=false&offset=0&photo-host=public&format=json&page=200&fields=&sig_id=9794564&sig=e0ff37957f1e552ccdbbefa8d1ea8b9840e7d3d6" target="_new">Raw API Call (from signed request)</a></p>
-
+  <p>
+      <a href="http://api.meetup.com/2/events?status=upcoming&order=time&limited_events=False&group_urlname=gdg-tc&desc=false&offset=0&photo-host=public&format=json&page=200&fields=&sig_id=9794564&sig=e0ff37957f1e552ccdbbefa8d1ea8b9840e7d3d6"
+         target="_new">
+         Raw API Call (from signed request)
+      </a>
+  </p>
+  <h2>meetup-element</h2>
   <meetup-element urlname="gdg-tc" sig="e0ff37957f1e552ccdbbefa8d1ea8b9840e7d3d6" sigid="9794564">
-    <h2>Hello meetup-element</h2>
   </meetup-element>
+
+  <h2>upcoming-meetups</h2>
+  <upcoming-meetups urlname="gdg-tc" sig="e0ff37957f1e552ccdbbefa8d1ea8b9840e7d3d6" sigid="9794564" hideDescription="hidden">
+  </upcoming-meetups>
 
 </body>
 </html>
