@@ -1,0 +1,19 @@
+<polymer-element name="meetup-description" attributes="meetup">
+  <template>
+    <link rel="stylesheet" href="styles/meetup-card.css">
+    Show More Info
+    <paper-checkbox id="showDetailCheckbox" on-click="{{showDetail}}"></paper-checkbox>
+    <div id="descr" hidden></div>
+  </template>
+
+  <script>
+    Polymer({
+      ready: function() {
+        this.injectBoundHTML(this.meetup.description, this.$.descr);
+      },
+      showDetail: function (){
+        this.$.descr.hidden = this.$.showDetailCheckbox.checked;
+      }
+    });
+  </script>
+</polymer-element>
