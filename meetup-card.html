@@ -7,25 +7,43 @@
     <link rel="stylesheet" href="styles/meetup-card.css">
 
     <div class="attendeecard" layout center vertical>
-      <div id="name"><a href="{{meetup.event_url}}" >{{meetup.name}}</a></div>
-      <content></content>
-      <div id="descrdiv">
+
+      <div id="name">
+          <a href="{{meetup.event_url}}">{{meetup.name}}</a>
+      </div>
+
+      <div>
+          <p id="meetupDate"></p>
+          <p>Current Headcount: {{meetup.headcount}}</p>
+          <p id="waitlistCount">Current Waitlist Count: {{meetup.waitlist_count}}</p>
+      </div>
+
+      <div id="descriptionContainer">
         Show description
         <paper-checkbox id="showDetailCheckbox" on-click="{{showDetail}}"></paper-checkbox>
-        <div id="descr" hidden></div>
+        <div id="description" hidden></div>
       </div>
+      <br /><br />
+
     </div>
+
+
   </template>
 
   <script>
+
+    var noDescription = "No description has been added yet for this event.";
+
     Polymer({
-      ready: function() {
-        this.injectBoundHTML(this.meetup.description, this.$.descr);
-        this.$.descrdiv.hidden = this.hideDescription;
-      },
-      showDetail: function (){
-        this.$.descr.hidden = this.$.showDetailCheckbox.checked;
-      }
+        ready: function() {
+            this.injectBoundHTML(this.meetup.description || noDescription, this.$.description);
+            this.$.descriptionContainer.hidden = this.hideDescription;
+            this.$.meetupDate.innerHTML = "When: " + new Date(this.meetup.time);
+            this.$.waitlistCount.hidden = this.meetup.waitlist_count === 0;
+        },
+        showDetail: function (){
+            this.$.description.hidden = this.$.showDetailCheckbox.checked;
+        }
     });
   </script>
 
