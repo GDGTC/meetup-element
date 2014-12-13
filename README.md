@@ -15,11 +15,11 @@ bower install
 
 Because of this, we recommend keeping a parent directory for the project that itself includes the development directory. For example:
 
--- MeetupElement
------- meetup-element (the files in this repo)
------- polymer
------- webcomponentsjs
------- .....[another dependency].....
+--> MeetupElement  
+------> meetup-element (the files in this repo)  
+------> polymer  
+------> webcomponentsjs  
+------> .....[another dependency].....
 
 ## Demo
 

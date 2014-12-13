@@ -11,10 +11,10 @@
 
     <link rel="stylesheet" href="meetup-element.css" />
 
-    <meetup-service id="meetupservice" meetups="{{meetups}}" urlname="{{urlname}}" sigid="{{sigid}}" sig="{{sig}}"></meetup-service>
+    <meetup-service id="meetupservice" data="{{data}}" urlname="{{urlname}}" sigid="{{sigid}}" sig="{{sig}}" serviceCmd="meetups"></meetup-service>
 
     <div vertical  layout wrap>
-      <template repeat="{{meetup in meetups}}">
+      <template repeat="{{meetup in data}}">
         <meetup-card meetup="{{meetup}}">
         </meetup-card>
       </template>
@@ -45,7 +45,7 @@
       fancy: false,
 
       ready: function() {
-      } 
+      }
     });
 
   </script>

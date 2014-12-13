@@ -1,29 +1,52 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../polymer-jsonp/polymer-jsonp.html">
 
-<polymer-element name="meetup-service" attributes="meetups urlname sigid sig">
+<polymer-element name="meetup-service" attributes="data urlname sigid sig serviceCmd">
   <template>
     <style>
     :host {
       display: none;
     }
     </style>
-    <polymer-jsonp auto id="jsonp" url="http://api.meetup.com/2/events?status=upcoming&order=time&limited_events=False&group_urlname={{urlname}}&desc=false&offset=0&photo-host=public&format=json&page=200&fields=&sig_id={{sigid}}&sig={{sig}}&callback="
+    <polymer-jsonp auto id="jsonp" url="{{url}}"
       on-polymer-response="{{dataLoaded}}"></polymer-jsonp>
   </template>
   <script>
   Polymer('meetup-service', {
     created: function() {
-      this.meetups = [];
+      this.data = [];
     },
     ready: function() {
       // this.meetupEventId = this.$.globals.values.meetupEventId;
       // this.baseAPIurl = this.$.globals.values.meetupAPIurl;
       // this.meetupSignedEventURL = this.$.globals.values.meetupSignedEventURL;
+
+      // Depending on the service command provided (chosen from our published API),
+      // we can dynamically build the URL for the polymer-jsonp element
+      switch (this.serviceCmd) {
+
+          case 'meetups':
+              this.url = "http://api.meetup.com/2/events?" +
+                         "status=upcoming" +
+                         "&order=time" +
+                         "&limited_events=False" +
+                         "&group_urlname=" + this.urlname +
+                         "&desc=false" +
+                         "&offset=0" +
+                         "&photo-host=public" +
+                         "&format=json" +
+                         "&page=200" +
+                         "&fields=" +
+                         "&sig_id=" + this.sigid +
+                         "&sig=" + this.sig +
+                         "&callback=";
+              break;
+          }
     },
+    
     dataLoaded: function() {
       // Make a copy of the loaded data
-      this.meetups = this.$.jsonp.response.results; 
+      this.data = this.$.jsonp.response.results;
     }
   });
   </script>
