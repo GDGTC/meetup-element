@@ -1,7 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../polymer-jsonp/polymer-jsonp.html">
 
-<polymer-element name="meetup-service" attributes="data urlname sigid sig serviceCmd">
+<polymer-element name="meetup-service" attributes="data urlname sigid sig dataFormat limit">
   <template>
     <style>
     :host {
@@ -17,36 +17,62 @@
       this.data = [];
     },
     ready: function() {
+
       // this.meetupEventId = this.$.globals.values.meetupEventId;
       // this.baseAPIurl = this.$.globals.values.meetupAPIurl;
       // this.meetupSignedEventURL = this.$.globals.values.meetupSignedEventURL;
+      var status;
 
       // Depending on the service command provided (chosen from our published API),
       // we can dynamically build the URL for the polymer-jsonp element
-      switch (this.serviceCmd) {
+      console.log(this.dataFormat);
 
-          case 'meetups':
+      switch (this.dataFormat) {
+
+          case 'upcoming-meetups':
+
+              status = "upcoming";
               this.url = "http://api.meetup.com/2/events?" +
-                         "status=upcoming" +
-                         "&order=time" +
-                         "&limited_events=False" +
-                         "&group_urlname=" + this.urlname +
-                         "&desc=false" +
-                         "&offset=0" +
-                         "&photo-host=public" +
-                         "&format=json" +
-                         "&page=200" +
-                         "&fields=" +
-                         "&sig_id=" + this.sigid +
-                         "&sig=" + this.sig +
-                         "&callback=";
+                 "status=" + status +
+                 "&order=time" +
+                 "&limited_events=False" +
+                 "&group_urlname=" + this.urlname +
+                 "&desc=false" +
+                 "&offset=0" +
+                 "&photo-host=public" +
+                 "&format=json" +
+                 "&page=200" +
+                 "&fields=" +
+                 "&sig_id=" + this.sigid +
+                 "&sig=" + this.sig +
+                 "&callback=";
               break;
-          }
+
+          case 'past-meetups':
+
+              status = "past";
+              this.url = "https://api.meetup.com/2/events?" +
+                  "status=" + status +
+                  "&order=time" +
+                  "&limited_events=False" +
+                  "&group_urlname=" + this.urlname +
+                  "&desc=false" +
+                  "&offset=0" +
+                  "&photo-host=public" +
+                  "&format=json" +
+                  "&page=200" +
+                  "&fields=" +
+                  "&sig_id=" + this.sigid +
+                  "&sig=" + this.sig +
+                  "&callback=";
+              break;
+      }
     },
-    
+
     dataLoaded: function() {
       // Make a copy of the loaded data
       this.data = this.$.jsonp.response.results;
+      console.log(this.data);
     }
   });
   </script>

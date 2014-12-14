@@ -5,13 +5,13 @@
 
 
 
-<polymer-element name="meetup-element" attributes="urlname sigid sig">
+<polymer-element name="meetup-element" attributes="urlname sigid sig dataFormat limit">
 
   <template>
 
     <link rel="stylesheet" href="meetup-element.css" />
 
-    <meetup-service id="meetupservice" data="{{data}}" urlname="{{urlname}}" sigid="{{sigid}}" sig="{{sig}}" serviceCmd="meetups"></meetup-service>
+    <meetup-service id="meetupservice" data="{{data}}" urlname="{{urlname}}" sigid="{{sigid}}" sig="{{sig}}" dataFormat="{{dataFormat}}" limit="{{limit}}"></meetup-service>
 
     <div vertical  layout wrap>
       <template repeat="{{meetup in data}}">

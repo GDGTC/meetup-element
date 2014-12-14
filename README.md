@@ -3,6 +3,12 @@ meetup-element
 
 This is a test run of creating a custom element from the [Polymer Seed Element](http://polymerlabs.github.io/seed-element).
 
+This repo may well be broken up into separate repos at some point, but right now it consists of three components: meetup-element, meetup-card, and meetup-service.
+
+The meetup-element is declared with the type of data that it wants to retrieve. It then
+it calls the meetup-service, which then populates a page of meetup-cards.
+
+
 ## Usage
 All dependencies are currently managed through Bower. To get started, simply fork the project into your own repository, clone it to your local machine,
 clone the project, then run:
