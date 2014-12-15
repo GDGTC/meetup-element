@@ -9,7 +9,7 @@ The meetup-element is declared with the type of data that it wants to retrieve. 
 it calls the meetup-service, which then populates a page of meetup-cards.
 
 
-## Usage
+## Setup
 All dependencies are currently managed through Bower. To get started, simply fork the project into your own repository, clone it to your local machine,
 clone the project, then run:
 
@@ -26,6 +26,22 @@ Because of this, we recommend keeping a parent directory for the project that it
 ------> polymer  
 ------> webcomponentsjs  
 ------> .....[another dependency].....
+
+## Usage
+
+As of now, meetup-element takes the following attributes as configuration options:
+
+- urlName (required): The path to a meetup group from meetup.com, no slashes
+    - e.g: "gdg-tc"
+- sig (required): Meetup API key
+- sigid (required): Meetup API key
+- dataFormat (required): The type of data to be retreived (see options below)
+- limit (optional): The number of data items to fetch. Used when retreiving a list.
+    - default: undefined
+
+**dataFormat Options**
+- upcoming-meetups: Tells meetup-element to fetch a list of upcoming meetups
+- past-meetups: Tells meetup-element to fetch a list of past-meetups
 
 ## Demo
 
