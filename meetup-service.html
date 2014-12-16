@@ -1,7 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../polymer-jsonp/polymer-jsonp.html">
 
-<polymer-element name="meetup-service" attributes="data urlname sigid sig dataFormat limit">
+<polymer-element name="meetup-service" attributes="data urlName key sig sigId dataFormat limit">
   <template>
     <style>
     :host {
@@ -22,6 +22,7 @@
       // this.baseAPIurl = this.$.globals.values.meetupAPIurl;
       // this.meetupSignedEventURL = this.$.globals.values.meetupSignedEventURL;
       var status;
+      var limit;
 
       // Depending on the service command provided (chosen from our published API),
       // we can dynamically build the URL for the polymer-jsonp element
@@ -33,18 +34,18 @@
 
               status = "upcoming";
               this.url = "http://api.meetup.com/2/events?" +
-                 "status=" + status +
+                 "sign=true" +
+                 "&status=" + status +
                  "&order=time" +
                  "&limited_events=False" +
-                 "&group_urlname=" + this.urlname +
+                 "&group_urlname=" + this.urlName +
                  "&desc=false" +
                  "&offset=0" +
                  "&photo-host=public" +
                  "&format=json" +
                  "&page=200" +
                  "&fields=" +
-                 "&sig_id=" + this.sigid +
-                 "&sig=" + this.sig +
+                 "&key=" + this.key +
                  "&callback=";
               break;
 
@@ -52,18 +53,18 @@
 
               status = "past";
               this.url = "https://api.meetup.com/2/events?" +
-                  "status=" + status +
+                  "sign=true" +
+                  "&status=" + status +
                   "&order=time" +
                   "&limited_events=False" +
-                  "&group_urlname=" + this.urlname +
+                  "&group_urlname=" + this.urlName +
                   "&desc=false" +
                   "&offset=0" +
                   "&photo-host=public" +
                   "&format=json" +
                   "&page=200" +
                   "&fields=" +
-                  "&sig_id=" + this.sigid +
-                  "&sig=" + this.sig +
+                  "&key=" + this.key +
                   "&callback=";
               break;
       }
@@ -72,6 +73,13 @@
     dataLoaded: function() {
       // Make a copy of the loaded data
       this.data = this.$.jsonp.response.results;
+
+      // trim the data set if a limit was expressed (and if that limit is
+      // less than the number of objects we found)
+      if (this.limit && this.limit < this.data.length) {
+          this.data = this.data.splice( (this.data.length - this.limit), this.data.length);
+      }
+
       console.log(this.data);
     }
   });

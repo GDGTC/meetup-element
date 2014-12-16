@@ -2,13 +2,13 @@
 <link rel="import" href="meetup-service.html" />
 <link rel="import" href="meetup-card.html" />
 
-<polymer-element name="upcoming-meetups" attributes="urlname sigid sig hideDescription">
+<polymer-element name="upcoming-meetups" attributes="urlName sigId sig hideDescription">
 
   <template>
 
     <link rel="stylesheet" href="meetup-element.css" />
 
-    <meetup-service id="meetupservice" meetups="{{meetups}}" urlname="{{urlname}}" sigid="{{sigid}}" sig="{{sig}}" ></meetup-service>
+    <meetup-service id="meetupservice" meetups="{{meetups}}" urlName="{{urlName}}" sigId="{{sigId}}" sig="{{sig}}" ></meetup-service>
 
     <div vertical  layout wrap>
       <template repeat="{{meetup in meetups}}">
