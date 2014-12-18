@@ -33,8 +33,9 @@ As of now, meetup-element takes the following attributes as configuration option
 
 - urlName (required): The path to a meetup group from meetup.com, no slashes
     - e.g: "gdg-tc"
-- sig (required): Meetup API key
-- sigId (required): Meetup API key
+- key (optional): Meetup API key. Allows multiple read-only requests in lieu of using a unique signature.    
+- sig (required without key): Meetup API url signature for a unique URL
+- sigId (required without key): Meetup API Id for a unique URL signature
 - dataFormat (required): The type of data to be retreived (see options below)
 - limit (optional): The number of data items to fetch. Used when retreiving a list.
     - default: undefined
