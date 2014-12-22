@@ -1,0 +1,11 @@
+.component-container {
+    width: 100%;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.component-container > meetup-element {
+    /*width: 50%;*/
+}

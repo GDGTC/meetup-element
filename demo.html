@@ -15,8 +15,9 @@
 
   <script src="../webcomponentsjs/webcomponents.min.js"></script>
   <script type="text/javascript" src="config.js"></script>
-  <link rel="import" href="meetup-element.html">
-  <link rel="import" href="upcoming-meetups.html">
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="import" href="meetup-element.html" />
+  <link rel="import" href="upcoming-meetups.html" />
 
 </head>
 <body unresolved onload="init()">
@@ -31,18 +32,22 @@
   </p>
 
   <h2>Past Meetups</h2>
-  <meetup-element id="past_meetups"
-                  urlName="gdg-tc"
-                  dataFormat="past-meetups"
-                  limit="3">
-  </meetup-element>
+  <div class="component-container">
+      <meetup-element id="past_meetups"
+                      urlName="gdg-tc"
+                      dataFormat="past-meetups"
+                      limit="3">
+      </meetup-element>
+  </div>
 
   <h2>Upcoming Meetups</h2>
-  <meetup-element id="upcoming_meetups"
-                  urlName="gdg-tc"
-                  dataFormat="upcoming-meetups"
-                  hideDescription="hidden">
-  </meetup-element>
+  <div class="component-container">
+      <meetup-element id="upcoming_meetups"
+                      urlName="gdg-tc"
+                      dataFormat="upcoming-meetups"
+                      hideDescription="hidden">
+      </meetup-element>
+  </div>
 
   <script>
 
