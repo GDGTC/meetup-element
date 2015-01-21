@@ -1,8 +1,9 @@
 {
   "name": "meetup-element",
-  "version": "0.0.3",
+  "version": "0.8.1",
   "authors": [
-    "Lloyd Cledwyn <cledwyn@gmail.com>"
+    "Lloyd Cledwyn <cledwyn@gmail.com>",
+    "Brian Sipple https://twitter.com/brian_sipple",
   ],
   "description": "Element providing information through the Meetup API.",
   "keywords": [
