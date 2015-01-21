@@ -1,3 +1,4 @@
+<link rel="import" href="../polymer/polymer.html" />
 <link rel="import" href="meetup-service.html" />
 <link rel="import" href="meetup-card.html" />
 <link rel="import" href="meetup-description.html"/>
@@ -10,7 +11,7 @@
 
     <link rel="stylesheet" href="meetup-element.css" />
 
-    <meetup-service id="meetupservice" meetups="{{data}}" urlname="{{urlname}}" sigid="{{sigid}}" sig="{{sig}}" serviceCmd="meetups"></meetup-service>
+    <meetup-service id="meetupservice" data="{{data}}" urlname="{{urlname}}" sigid="{{sigid}}" sig="{{sig}}" serviceCmd="meetups"></meetup-service>
 
     <div vertical  layout wrap>
       <template repeat="{{meetup in data}}">
@@ -33,7 +34,6 @@
        * @default 'Dimitri Glazkov'
        */
       author: 'Lloyd Cledwyn',
-
       ready: function() {
       }
     });

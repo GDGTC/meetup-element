@@ -5,12 +5,11 @@
   <template>
     <style>
     :host {
-/*      display: none;
-*/    }
+      display: none;
+    }
     </style>
     <polymer-jsonp auto id="jsonp" url="{{url}}"
       on-polymer-response="{{dataLoaded}}"></polymer-jsonp>
-      <h3>Loaded</h3>
   </template>
   <script>
   Polymer('meetup-service', {
