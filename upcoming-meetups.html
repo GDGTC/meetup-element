@@ -10,11 +10,20 @@
 
     <meetup-service id="meetupservice" meetups="{{meetups}}" urlname="{{urlname}}" sigid="{{sigid}}" sig="{{sig}}" ></meetup-service>
 
-    <div vertical  layout wrap>
-      <template repeat="{{meetup in meetups}}">
-        <meetup-card meetup="{{meetup}}" hideDescription="{{hideDescription}}"> </meetup-card>
-      </template>
-    </div>
+         <div>
+         <table>
+          <template repeat="{{meetup in meetups}}">
+          <tr>
+            <td>
+             <div class="date"><p>{{meetup.time | toDateDay}} <span>{{meetup.time | toDateMon}}</span></p></div>
+           </td>
+           <td>
+             <div class="eventurl" onclick="window.open('{{meetup.event_url}}')" >{{meetup.name}}</div>
+           </td>
+           </tr>
+          </template>
+        </table>
+        </div>
 
 
   </template>
@@ -42,6 +51,15 @@
 
       ready: function() {
       } 
+      , toDateDay: function(input){
+        var d = (new Date(input)).getDate();
+        return d;
+      },
+      toDateMon: function(input){
+        var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+        var m = monthNames[(new Date(input)).getMonth()];
+        return m ;
+      }
     });
 
   </script>
