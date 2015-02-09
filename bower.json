@@ -3,7 +3,7 @@
   "version": "0.8.1",
   "authors": [
     "Lloyd Cledwyn <cledwyn@gmail.com>",
-    "Brian Sipple https://twitter.com/brian_sipple",
+    "Brian Sipple https://twitter.com/brian_sipple"
   ],
   "description": "Element providing information through the Meetup API.",
   "keywords": [
